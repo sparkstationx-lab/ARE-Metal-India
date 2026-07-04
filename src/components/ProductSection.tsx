@@ -84,7 +84,7 @@ export default function ProductSection({
             >
               <div>
                 {/* Product Image Panel */}
-                <div className="relative h-48 overflow-hidden bg-brand-bg">
+                <div className="relative h-56 overflow-hidden bg-brand-bg">
                   <img
                     src={prod.image}
                     alt={prod.title}
@@ -125,9 +125,9 @@ export default function ProductSection({
               <div className="px-6 pb-6 pt-2">
                 <button
                   onClick={() => handleOpenDetails(prod)}
-                  className="w-full flex items-center justify-center space-x-2 bg-brand-bg hover:bg-brand-primary text-brand-dark hover:text-white border border-brand-neutral/25 font-sans font-bold text-xs py-3 rounded-xl transition-all duration-300 cursor-pointer group/btn shadow-sm"
+                  className="w-full flex items-center justify-center space-x-2 bg-brand-bg hover:bg-[#C51D34] text-brand-dark hover:text-white border border-brand-neutral/25 font-sans font-bold text-xs py-3 rounded-xl transition-all duration-300 cursor-pointer group/btn shadow-sm hover:shadow-md"
                 >
-                  <span>Technical Specifications</span>
+                  <span>View Details</span>
                   <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />
                 </button>
               </div>
