@@ -70,6 +70,8 @@ export default function GallerySection() {
               <img
                 src={item.image}
                 alt={item.title}
+                title={item.title}
+                loading="lazy"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
               

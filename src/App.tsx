@@ -1,4 +1,5 @@
 import { useState } from "react";
+import SEOManager from "./components/SEOManager";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import ClientsCarousel from "./components/ClientsCarousel";
@@ -9,6 +10,7 @@ import ManufacturingSection from "./components/ManufacturingSection";
 import CertificatesSection from "./components/CertificatesSection";
 import GallerySection from "./components/GallerySection";
 import BrochureModal from "./components/BrochureModal";
+import FAQSection from "./components/FAQSection";
 import ContactSection from "./components/ContactSection";
 import Footer from "./components/Footer";
 
@@ -24,9 +26,11 @@ export default function App() {
     }
   };
 
-  const handleSelectProduct = (productId: string) => {
+  const handleSelectProduct = (productId: string | null) => {
     setSelectedProductId(productId);
-    handleNavigateToSection("products");
+    if (productId) {
+      handleNavigateToSection("products");
+    }
   };
 
   const handleCloseProductModal = () => {
@@ -50,6 +54,12 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-brand-bg text-brand-text flex flex-col justify-between selection:bg-brand-primary selection:text-white">
+      {/* SEO Dynamic Manager */}
+      <SEOManager
+        selectedProductId={selectedProductId}
+        onSelectProduct={handleSelectProduct}
+      />
+
       {/* Header */}
       <Header
         onNavigateToSection={handleNavigateToSection}
@@ -87,6 +97,9 @@ export default function App() {
 
         {/* Filterable Facility masonry gallery & Lightbox */}
         <GallerySection />
+
+        {/* Interactive B2B FAQ Section */}
+        <FAQSection />
 
         {/* B2B Inquiry form & Live maps */}
         <ContactSection

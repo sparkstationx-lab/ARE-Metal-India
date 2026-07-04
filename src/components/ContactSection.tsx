@@ -15,6 +15,7 @@ export default function ContactSection({ inquiryProduct, onClearInquiryProduct }
     product: "General Inquiry",
     message: "",
   });
+  const [honeypot, setHoneypot] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState("");
 
@@ -28,10 +29,34 @@ export default function ContactSection({ inquiryProduct, onClearInquiryProduct }
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.name || !formData.email || !formData.phone || !formData.company || !formData.message) {
+    
+    // Spam protection honeypot
+    if (honeypot) {
+      // Quietly succeed to fool spam bots
+      setIsSubmitted(true);
+      return;
+    }
+
+    // Required fields verification
+    if (!formData.name.trim() || !formData.email.trim() || !formData.phone.trim() || !formData.company.trim() || !formData.message.trim()) {
       setError("Please fill out all required fields to submit your inquiry.");
       return;
     }
+
+    // High Fidelity Email Pattern validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email.trim())) {
+      setError("Please provide a valid corporate email address (e.g., name@company.com).");
+      return;
+    }
+
+    // High Fidelity Phone validation (at least 8 digits)
+    const digitsOnly = formData.phone.replace(/\D/g, "");
+    if (digitsOnly.length < 8) {
+      setError("Please provide a valid contact phone number with country/area code.");
+      return;
+    }
+
     setError("");
     setIsSubmitted(true);
 
@@ -143,6 +168,18 @@ export default function ContactSection({ inquiryProduct, onClearInquiryProduct }
 
               {!isSubmitted ? (
                 <form onSubmit={handleSubmit} className="space-y-4">
+                  {/* Visually hidden honeypot field for anti-spam protection */}
+                  <div className="absolute opacity-0 -z-10 w-0 h-0 overflow-hidden pointer-events-none">
+                    <label htmlFor="confirm_user_profile_are">Do not fill this field if you are human</label>
+                    <input
+                      id="confirm_user_profile_are"
+                      type="text"
+                      autoComplete="off"
+                      value={honeypot}
+                      onChange={(e) => setHoneypot(e.target.value)}
+                    />
+                  </div>
+
                   {error && (
                     <div className="bg-rose-50 border border-rose-100 text-rose-600 font-sans text-xs p-3 rounded-xl">
                       {error}

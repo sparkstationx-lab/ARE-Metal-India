@@ -9,12 +9,28 @@ interface ProductSectionProps {
   onProductInquiry: (productName: string) => void;
 }
 
+const RELATED_MAP: Record<string, string[]> = {
+  "copper-bonded-earth-rods": ["chemical-earthing-electrode", "solid-copper-earth-rods"],
+  "chemical-earthing-electrode": ["copper-bonded-earth-rods", "earth-pit-covers"],
+  "solid-copper-earth-rods": ["copper-bonded-earth-rods", "earthing-strips-flats"],
+  "ese-lightning-arrester": ["conventional-lightning-arrester", "earthing-strips-flats"],
+  "conventional-lightning-arrester": ["ese-lightning-arrester", "earthing-strips-flats"],
+  "earthing-strips-flats": ["earth-clamps-accessories", "copper-bonded-earth-rods"],
+  "earth-pit-covers": ["chemical-earthing-electrode", "earth-clamps-accessories"],
+  "earth-clamps-accessories": ["earthing-strips-flats", "copper-bonded-earth-rods"],
+};
+
 export default function ProductSection({
   selectedProductId,
   onCloseProductModal,
   onProductInquiry,
 }: ProductSectionProps) {
   const [activeProduct, setActiveProduct] = useState<Product | null>(null);
+
+  // Derive related products
+  const relatedProducts = activeProduct
+    ? (RELATED_MAP[activeProduct.id] || []).map((id) => PRODUCTS.find((p) => p.id === id)).filter(Boolean) as Product[]
+    : [];
 
   useEffect(() => {
     if (selectedProductId) {
@@ -72,6 +88,8 @@ export default function ProductSection({
                   <img
                     src={prod.image}
                     alt={prod.title}
+                    title={prod.title}
+                    loading="lazy"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
@@ -202,6 +220,38 @@ export default function ProductSection({
                         </li>
                       ))}
                     </ul>
+                  </div>
+                </div>
+
+                {/* Related Products Section */}
+                <div className="pt-4 border-t border-brand-neutral/10">
+                  <h5 className="font-display font-bold text-xs text-brand-dark uppercase tracking-wide mb-3">
+                    Related Protection Equipment
+                  </h5>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    {relatedProducts.map((related) => (
+                      <button
+                        key={related.id}
+                        onClick={() => handleOpenDetails(related)}
+                        className="flex items-center space-x-3 p-2.5 rounded-xl border border-brand-neutral/15 hover:border-brand-primary/40 bg-brand-bg hover:bg-white text-left transition-all group/rel cursor-pointer"
+                        aria-label={`View details for ${related.title}`}
+                      >
+                        <img
+                          src={related.image}
+                          alt={related.title}
+                          className="w-10 h-10 object-cover rounded-lg shrink-0"
+                          loading="lazy"
+                        />
+                        <div className="min-w-0">
+                          <p className="font-display font-bold text-[11px] text-brand-dark truncate group-hover/rel:text-brand-primary transition-colors">
+                            {related.title}
+                          </p>
+                          <p className="font-sans text-[10px] text-brand-neutral truncate">
+                            {related.shortDescription}
+                          </p>
+                        </div>
+                      </button>
+                    ))}
                   </div>
                 </div>
 

@@ -25,6 +25,8 @@ export default function AboutSection() {
               <img
                 src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800"
                 alt="ARE Quality Control Testing and Inspection"
+                title="ARE Quality Control Testing and Inspection"
+                loading="lazy"
                 className="w-full h-full object-cover"
               />
               {/* Overlay styling */}

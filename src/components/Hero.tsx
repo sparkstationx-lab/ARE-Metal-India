@@ -17,6 +17,8 @@ export default function Hero({ onNavigateToSection, onOpenBrochure }: HeroProps)
         <img
           src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=1600"
           alt="ARE Industrial Manufacturing Facility"
+          title="ARE Industrial Manufacturing Facility - Sativali, Vasai East"
+          fetchPriority="high"
           className="w-full h-full object-cover opacity-20 object-center"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-brand-dark via-brand-dark/95 to-transparent"></div>
