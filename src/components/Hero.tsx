@@ -7,10 +7,10 @@ interface HeroProps {
 }
 
 const HERO_IMAGES = [
-  "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=1600",
+  "https://images.unsplash.com/photo-1516937941344-00b4e0337589?auto=format&fit=crop&q=80&w=1600",
   "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&q=80&w=1600",
-  "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1600",
-  "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=1600"
+  "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=1600",
+  "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=1600"
 ];
 
 export default function Hero({ onNavigateToSection, onOpenBrochure }: HeroProps) {
@@ -29,27 +29,27 @@ export default function Hero({ onNavigateToSection, onOpenBrochure }: HeroProps)
       className="relative min-h-[90vh] lg:min-h-[95vh] bg-brand-dark pt-32 pb-20 flex items-center overflow-hidden"
     >
       {/* Background Image Slider with smooth crossfading */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 bg-brand-dark">
         {HERO_IMAGES.map((src, idx) => (
           <div
             key={src}
             className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-              idx === currentIdx ? "opacity-35" : "opacity-0"
+              idx === currentIdx ? "opacity-85" : "opacity-0"
             }`}
           >
             <img
               src={src}
               alt="ARE Metal India industrial operations"
-              className="w-full h-full object-cover object-center transform scale-102 hover:scale-100 transition-transform duration-[5000ms]"
+              className="w-full h-full object-cover object-center transform scale-102 hover:scale-100 transition-transform duration-[5000ms] brightness-105 contrast-105"
               loading={idx === 0 ? "eager" : "lazy"}
               fetchPriority={idx === 0 ? "high" : "low"}
             />
           </div>
         ))}
         
-        {/* Subtle dark overlay to improve text contrast (45% opacity) */}
-        <div className="absolute inset-0 bg-slate-950/45 mix-blend-multiply"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/30 to-transparent"></div>
+        {/* Subtle dark overlay (25% opacity) to improve text contrast and preserve image details */}
+        <div className="absolute inset-0 bg-slate-950/25"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-slate-950/15 to-slate-950/40"></div>
         
         {/* Subtle high-tech grid pattern overlay */}
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:45px_45px]"></div>

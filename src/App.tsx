@@ -66,6 +66,7 @@ export default function App() {
       <Header
         onNavigateToSection={handleNavigateToSection}
         onSelectProduct={handleSelectProduct}
+        onOpenBrochure={handleOpenBrochure}
       />
 
       {/* Hero Block */}
