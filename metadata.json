@@ -1,0 +1,6 @@
+{
+  "name": "ARE Metal India",
+  "description": "Premium corporate website for ARE Metal India Private Limited, global manufacturer and exporter of Earthing Materials and Lightning Protection systems.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
