@@ -71,11 +71,11 @@ export default function Header({ onNavigateToSection, onSelectProduct, onOpenBro
 
   return (
     <div
-      className={`fixed left-4 right-4 md:left-6 md:right-6 lg:left-8 lg:right-8 z-50 max-w-7xl mx-auto transition-all duration-500 ease-out ${
+      className={`fixed left-4 right-4 md:left-6 md:right-6 lg:left-8 lg:right-8 xl:left-10 xl:right-10 z-50 max-w-7xl mx-auto transition-all duration-[350ms] ease-out border rounded-[20px] lg:rounded-[24px] ${
         isScrolled
-          ? "top-3 py-2 bg-white/90 border-slate-200/60 shadow-xl"
-          : "top-5 py-4 bg-white/75 border-white/20 shadow-lg"
-      } backdrop-blur-md rounded-2xl lg:rounded-3xl border`}
+          ? "top-5 py-2 bg-white/85 border-slate-200/40 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.15)] backdrop-blur-xl scale-[0.985]"
+          : "top-7 py-4.5 bg-white/60 border-white/20 shadow-[0_15px_40px_-15px_rgba(0,0,0,0.1)] backdrop-blur-md"
+      }`}
     >
       <div className="px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
