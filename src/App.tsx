@@ -5,14 +5,16 @@ import Hero from "./components/Hero";
 import ClientsCarousel from "./components/ClientsCarousel";
 import AboutSection from "./components/AboutSection";
 import WhyChooseSection from "./components/WhyChooseSection";
+import IndustriesServicesSection from "./components/IndustriesServicesSection";
 import ProductSection from "./components/ProductSection";
 import ManufacturingSection from "./components/ManufacturingSection";
 import CertificatesSection from "./components/CertificatesSection";
 import GallerySection from "./components/GallerySection";
-import BrochureModal from "./components/BrochureModal";
 import FAQSection from "./components/FAQSection";
+import DownloadSection from "./components/DownloadSection";
 import ContactSection from "./components/ContactSection";
 import Footer from "./components/Footer";
+import BrochureModal from "./components/BrochureModal";
 
 export default function App() {
   const [selectedProductId, setSelectedProductId] = useState<string | null>(null);
@@ -82,6 +84,9 @@ export default function App() {
         {/* Credentials Grid (6 B2B cards) */}
         <WhyChooseSection />
 
+        {/* Industries we serve & support services */}
+        <IndustriesServicesSection />
+
         {/* Comprehensive Product Cards & spec sheets */}
         <ProductSection
           selectedProductId={selectedProductId}
@@ -97,6 +102,9 @@ export default function App() {
 
         {/* Filterable Facility masonry gallery & Lightbox */}
         <GallerySection />
+
+        {/* Downloads & Technical specification sheets */}
+        <DownloadSection onOpenBrochureRequest={handleOpenBrochure} />
 
         {/* Interactive B2B FAQ Section */}
         <FAQSection />

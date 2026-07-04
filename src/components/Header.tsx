@@ -27,11 +27,11 @@ export default function Header({ onNavigateToSection, onSelectProduct }: HeaderP
   const navItems = [
     { label: "Home", id: "home" },
     { label: "About Us", id: "about" },
-    { label: "Why Choose Us", id: "why-choose-us" },
+    { label: "Solutions", id: "solutions" },
     { label: "Products", id: "products", isDropdown: true },
-    { label: "Factory & Machinery", id: "manufacturing" },
+    { label: "Machinery", id: "manufacturing" },
     { label: "Certificates", id: "certificates" },
-    { label: "Gallery", id: "gallery" },
+    { label: "Downloads", id: "downloads" },
   ];
 
   const handleNavItemClick = (id: string) => {

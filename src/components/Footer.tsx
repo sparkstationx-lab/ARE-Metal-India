@@ -75,17 +75,17 @@ export default function Footer({ onNavigateToSection, onSelectProduct }: FooterP
               Company
             </h4>
             <div className="flex flex-col space-y-2.5 text-xs font-sans text-slate-400">
-              <button onClick={() => onNavigateToSection("about")} className="text-left hover:text-white transition-colors">
+              <button onClick={() => onNavigateToSection("about")} className="text-left hover:text-white transition-colors cursor-pointer">
                 About Our Profile
               </button>
-              <button onClick={() => onNavigateToSection("why-choose-us")} className="text-left hover:text-white transition-colors">
-                Why EPCs Choose Us
+              <button onClick={() => onNavigateToSection("solutions")} className="text-left hover:text-white transition-colors cursor-pointer">
+                Industries &amp; Services
               </button>
-              <button onClick={() => onNavigateToSection("certificates")} className="text-left hover:text-white transition-colors">
+              <button onClick={() => onNavigateToSection("certificates")} className="text-left hover:text-white transition-colors cursor-pointer">
                 Quality Certifications
               </button>
-              <button onClick={() => onNavigateToSection("gallery")} className="text-left hover:text-white transition-colors">
-                Factory Gallery
+              <button onClick={() => onNavigateToSection("downloads")} className="text-left hover:text-white transition-colors cursor-pointer">
+                Technical Downloads
               </button>
             </div>
           </div>
