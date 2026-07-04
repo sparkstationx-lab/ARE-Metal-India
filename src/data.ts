@@ -1,12 +1,12 @@
 import { Product, Certificate, Client, GalleryItem, TimelineEvent, Statistic, CoreValue } from "./types";
 
 export const STATISTICS: Statistic[] = [
-  { label: "Manufacturing Facilities", value: "2", suffix: "+" },
-  { label: "Annual Production Capacity", value: "5,000", suffix: " Tons" },
-  { label: "Global Corporate Clients", value: "150", suffix: "+" },
-  { label: "Years of Engineering Excellence", value: "10", suffix: "+" },
-  { label: "Countries Exported To", value: "12", suffix: "+" },
-  { label: "Completed Projects", value: "500", suffix: "+" },
+  { label: "Year Established", value: "2021" },
+  { label: "Core Location", value: "Vasai East", suffix: ", Palghar" },
+  { label: "Business Type", value: "Manufacturer", suffix: " & Exporter" },
+  { label: "Compliance", value: "ISO 9001", suffix: ":2015" },
+  { label: "Product Testing", value: "CPRI & ERDA", suffix: " Verified" },
+  { label: "Eco Standards", value: "CE & RoHS", suffix: " Compliant" },
 ];
 
 export const CORE_VALUES: CoreValue[] = [

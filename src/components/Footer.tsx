@@ -39,7 +39,7 @@ export default function Footer({ onNavigateToSection, onSelectProduct }: FooterP
             </div>
 
             <p className="font-sans text-xs text-slate-400 leading-relaxed">
-              Leading global manufacturer and exporter of heavy-duty earthing materials and early streamer emission terminals. Engineering certified protection since 2020.
+              Leading global manufacturer and exporter of heavy-duty earthing materials and early streamer emission terminals. Engineering certified protection since 2021.
             </p>
 
             <div className="flex items-center space-x-3 bg-white/5 p-4 rounded-xl border border-white/10">
@@ -76,10 +76,7 @@ export default function Footer({ onNavigateToSection, onSelectProduct }: FooterP
             </h4>
             <div className="flex flex-col space-y-2.5 text-xs font-sans text-slate-400">
               <button onClick={() => onNavigateToSection("about")} className="text-left hover:text-white transition-colors">
-                About Our History
-              </button>
-              <button onClick={() => onNavigateToSection("timeline")} className="text-left hover:text-white transition-colors">
-                Milestones Timeline
+                About Our Profile
               </button>
               <button onClick={() => onNavigateToSection("why-choose-us")} className="text-left hover:text-white transition-colors">
                 Why EPCs Choose Us

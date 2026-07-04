@@ -35,8 +35,8 @@ export default function WhyChooseSection() {
       borderColor: "group-hover:border-brand-primary/40",
     },
     {
-      title: "Decade of Experience",
-      desc: "An experienced technical engineering team that has completed over 500 custom high-voltage grounding project designs.",
+      title: "Technical Support",
+      desc: "Our engineering department offers dedicated support including custom grounding layout calculations and design files.",
       icon: Clock,
       color: "text-brand-primary",
       bgColor: "bg-brand-primary/10",
