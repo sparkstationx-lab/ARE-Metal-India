@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Analytics } from '@vercel/analytics/react';
 import SEOManager from "./components/SEOManager";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
@@ -128,6 +129,9 @@ export default function App() {
         isOpen={isBrochureOpen}
         onClose={handleCloseBrochure}
       />
+
+      {/* Vercel Web Analytics */}
+      <Analytics />
     </div>
   );
 }
